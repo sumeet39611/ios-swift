@@ -2,137 +2,161 @@
 //  LinkList.swift
 //  UnOrderedList
 //
-//  Created by BridgeLabz on 03/08/16.
+//  Implenting functions append(),isEmpty(),size(),search(),remove(),index(),insert() and display()
+//
+//  Created by Sumeet on 03/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
 import Foundation
 
-class LinkList: NSObject {
-    var head : Node!
+class LinkList: NSObject
+{
+    var mHead : Node!
    
     //adding elements in linklist
-    func append(word : String){
+    func append(word : String)
+    {
         //making new node
         let newNode = Node(val : word)
         
-        if isEmpty(){
-            head = newNode
-        }else{
-            var lastNode = head
-            while lastNode.next != nil {
-                lastNode = lastNode.next
+        if isEmpty()
+        {
+            mHead = newNode
+        }
+        else
+        {
+            var lastNode = mHead
+            while lastNode.mNext != nil
+            {
+                lastNode = lastNode.mNext
             }
-            lastNode.next = newNode
+            lastNode.mNext = newNode
         }
 
     }
     
     //checking linklist is empty or not
-    func isEmpty() ->Bool {
-        if head == nil {
+    func isEmpty() ->Bool
+    {
+        if mHead == nil
+        {
             return true
         }
         return false
     }
     
     //number of elements in list
-    func size() -> Int {
-        var currentNode = head
+    func size() -> Int
+    {
+        var currentNode = mHead
         var count = 0
-        while currentNode != nil {
+        while currentNode != nil
+        {
             count++
-            currentNode = currentNode.next
+            currentNode = currentNode.mNext
         }
        return count
     }
     
     
     //search the element in linklist
-    func search(word : String) -> Bool{
-       
-        var currentNode = head
-        
-        while currentNode != nil {
-            if currentNode.data == word {
+    func search(word : String) -> Bool
+    {
+        var currentNode = mHead
+        while currentNode != nil
+        {
+            if currentNode.mData == word
+            {
                 print("Element is found")
                 return true
             }
-            currentNode = currentNode.next
+            currentNode = currentNode.mNext
         }
         return false
     }
     
     //remove element from list
-    func remove(word : String) {
-        var prevNode = head
-        var currentNode = head.next
+    func remove(word : String)
+    {
+        var prevNode = mHead
+        var currentNode = mHead.mNext
         
-        if head.data == word {
-            head = head.next
+        if mHead.mData == word {
+            mHead = mHead.mNext
         }
-        else {
-            while currentNode != nil{
-                if currentNode!.data == word {
-                    prevNode.next = currentNode?.next
+        else
+        {
+            while currentNode != nil
+            {
+                if currentNode!.mData == word
+                {
+                    prevNode.mNext = currentNode?.mNext
                     break
                 }
-                currentNode = currentNode!.next
-                prevNode = prevNode.next
+                currentNode = currentNode!.mNext
+                prevNode = prevNode.mNext
             }
         }
     }
 
     
     //finding index of element
-    func index(word : String) ->Int {
-        var currentNode = head
+    func index(word : String) ->Int
+    {
+        var currentNode = mHead
         var position = 1
         
-        while currentNode != nil {
-            if currentNode.data == word {
+        while currentNode != nil
+        {
+            if currentNode.mData == word
+            {
                 break
             }
             position++
-            currentNode = currentNode.next
+            currentNode = currentNode.mNext
         }
         return position
     }
     
     //inserting element at particular position
-    func insert(pos : Int, word : String) {
-        var prevNode = head
-        var currentNode = head
+    func insert(pos : Int, word : String)
+    {
+        var prevNode = mHead
+        var currentNode = mHead
         
         let newNode = Node(val: word)
         
-        if pos == 1 {
-            head = newNode
-            head.next = currentNode
+        if pos == 1
+        {
+            mHead = newNode
+            mHead.mNext = currentNode
         }
-        else if size() == pos {
+        else if size() == pos
+        {
             append(word)
         }
-        else {
-            for _ in 1...pos {
+        else
+        {
+            for _ in 1...pos
+            {
                 prevNode = currentNode
-                currentNode = currentNode.next
+                currentNode = currentNode.mNext
             }
-            prevNode.next = newNode
-            newNode.next = currentNode
+            prevNode.mNext = newNode
+            newNode.mNext = currentNode
         }
-        
-        
     }
     
     //display linklist
-    func display() {
-            var currentNode = head
-            while currentNode != nil{
-                print(currentNode.data)
-                currentNode = currentNode.next
+    func display()
+    {
+            var currentNode = mHead
+            while currentNode != nil
+            {
+                print(currentNode.mData)
+                currentNode = currentNode.mNext
             }
-    
     }
     
 }

@@ -2,49 +2,54 @@
 //  main.swift
 //  StockReport
 //
-//  Created by BridgeLabz on 02/08/16.
+//  Showing stock report with share name, number of share and share value
+//
+//  Created by Sumeet on 02/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
 import Foundation
 
-//no. of stocks
-print("Enter no. of stock")
 var no: Int
-no = Int(readLine()!)!
 var totalValue = 0
 
-for _ in 0..<no {
+//no. of stock
+print("Enter no. of stock")
+no = Int(readLine()!)!
+
+for _ in 0..<no
+{
+    var shareName : String
+    var noOfShare : Int
+    var sharePrice : Int
     
     //name of share
     print("Enter a share name: ")
-    var shareName : String
     shareName = readLine()!
 
     //no. of share
     print("Enter a no. of share: ")
-    var noOfShare : Int
     noOfShare = Int(readLine()!)!
 
     //price of share
     print("Enter a price of share: ")
-    var price : Int
-    price = Int(readLine()!)!
+    sharePrice = Int(readLine()!)!
 
     //making object of class Stock
-    let ss = Stock()
+    let stockObj = Stock()
 
     //calling all function
-    ss.setName(shareName)
-    ss.setShare(noOfShare)
-    ss.setPrice(price)
-    totalValue += ss.total()
+   var name = stockObj.setName(shareName)
+   var share = stockObj.setShare(noOfShare)
+   var price = stockObj.setPrice(sharePrice)
+    
+    totalValue += stockObj.total()
     
     //displaying each values of stock
-    print("share name is \(ss.shareName)")
-    print("No. of share is \(ss.noOfShare)")
-    print("share price is \(ss.sharePrice)")
-    print("value of stock \(ss.t)")
+    print("share name is \(name)")
+    print("No. of share is \(share)")
+    print("share price is \(price)")
+    print("value of stock \(stockObj.mStockValue)")
 
 }
 

@@ -2,7 +2,9 @@
 //  main.swift
 //  BubbleSort
 //
-//  Created by BridgeLabz on 03/08/16.
+//  sorting out data using bubble sort
+//
+//  Created by Sumeet on 03/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -15,12 +17,14 @@ var arr = [String]()
 print("enter no. of elements you want to enter in array")
 var n = Int(readLine()!)!
 
-//taking user input
-print("Enter elements :")
 var str:String
 
+//taking user input
+print("Enter elements :")
+
 //adding element in array
-for var i=0;i<n;i++ {
+for var i=0;i<n;i++
+{
     str = readLine()!
     arr.append(str)
 }
@@ -29,9 +33,12 @@ for var i=0;i<n;i++ {
 print(arr)
 
 //bubble sorting
-for var i=0;i<n;i++ {
-    for var j=0;j<n-1-i;j++ {
-        if arr[j]>arr[j+1] {
+for var i=0;i<n;i++
+{
+    for var j=0;j<n-1-i;j++
+    {
+        if arr[j]>arr[j+1]
+        {
             var temp = arr[j+1]
             arr[j+1] = arr[j]
             arr[j] = temp

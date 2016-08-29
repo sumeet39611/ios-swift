@@ -2,56 +2,67 @@
 //  main.swift
 //  Gambler
 //
-//  Created by BridgeLabz on 01/08/16.
+//  Percentage of wins and loss of gambler
+//
+//  Created by Sumeet on 01/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
 import Foundation
 
-//taking stake value
-print("Enter a stack value: ")
 var stake : Int
+var goal : Int
+var noOfTrials : Int
+var bets = 0
+var wins = 0
+
+//taking stake value
+print("Enter a stake value: ")
 stake = Int(readLine()!)!
 
 //taking goal value
 print("Enter a goal value: ")
-var goal : Int
 goal = Int(readLine()!)!
 
 //taking number of trials
 print("Enter a Number of trials you want")
-var noOfTrials : Int
 noOfTrials = Int(readLine()!)!
 
-var bets = 0
-var wins = 0
-for var i=0;i<noOfTrials;i++ {
-    
+for var i=0;i<noOfTrials;i++
+{
     var cash=stake
+ 
     //loop continue till gambler is win or broke
-    while (cash>0 && cash<goal) {
+    while (cash>0 && cash<goal)
+    {
         bets++
      
         //generating random number
         var random = Float32(Int(arc4random_uniform(10)))/10
         
         //random number greater than 0.5 then cash incremented
-        if random < 0.5 {
+        if random < 0.5
+        {
             cash++
         }
-            // otherwise decremented
-        else{
+        // otherwise cash decremented
+        else
+        {
             cash--
         }
 
     }
+    
     //if cash value equal to goal value then gambler wins
-    if cash == goal {
+    if cash == goal
+    {
         wins++
     }
 }
 
-//displaying result
+//displaying result as percentage of wins
 print("Percentage of wins \(Float(wins*100)/Float(noOfTrials))")
+
+//displaying result as percentage of loss
 print("Percentage of loss \(Float((100-wins)*100)/Float(noOfTrials))")
 
